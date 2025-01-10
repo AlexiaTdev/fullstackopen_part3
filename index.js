@@ -27,6 +27,10 @@ let persons = [
   app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
   })
+  app.get('/info', (request, response) => {
+    let date = new Date();
+    response.send('<p>Phonebook has info for '+persons.length+' people</p><p>'+date+'</p>')
+  })
   app.get('/api/persons', (request, response) => {
     response.json(persons)
   })
@@ -39,10 +43,24 @@ let persons = [
         response.status(404).end()
     }
   })
-  app.get('/info', (request, response) => {
-    let date = new Date();
-    response.send('<p>Phonebook has info for '+persons.length+' people</p><p>'+date+'</p>')
+
+  const generateId = () => {
+    return Math.floor(Math.random() * 1000);
+  }
+  app.post('/api/persons', (request, response) => {
+    const body = request.body
+  
+    const person = {
+        id: generateId(),
+        name: body.name,
+        number: body.number,
+    }
+  
+    persons = persons.concat(person)
+  
+    response.json(person)
   })
+
 
 const PORT = 3001
 app.listen(PORT)
