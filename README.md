@@ -15,3 +15,8 @@
 ## Exercise 3.4 step 4
 - [x] create a POST route to add a person at address http://localhost:3001/api/persons.
 - [x] id should be generated with Math.random with large enough number
+
+## Exercise 3.5 step 5
+- [x] implement error handling for creating a person entry if the name or number is missing
+- [x] implement error handling for creating a person entry if the name already exists in the phonebook
+- [x] Respond to requests with the appropriate status code, and also send back information that explains the reason for the error
