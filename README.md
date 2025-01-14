@@ -23,3 +23,7 @@
 - [x] implement error handling for creating a person entry if the name or number is missing
 - [x] implement error handling for creating a person entry if the name already exists in the phonebook
 - [x] Respond to requests with the appropriate status code, and also send back information that explains the reason for the error
+
+## Exercise 3.7 step 7
+- [x] add the morgan middleware for the logging
+- [x] configure it to log messages to your console based on the "tiny" configuration. 
