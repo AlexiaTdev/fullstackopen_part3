@@ -29,4 +29,4 @@
 - [x] configure it to log messages to your console based on the "tiny" configuration. 
 
 ## Exercise 3.8 step 8
-- [ ] configure morgan so that it shows data sent in HTTP POST request
+- [x] configure morgan so that it shows data sent in HTTP POST request
