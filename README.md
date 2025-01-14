@@ -30,3 +30,13 @@
 
 ## Exercise 3.8 step 8
 - [x] configure morgan so that it shows data sent in HTTP POST request
+
+## Exercise 3.9 step 9
+- [x] Make the backend work with the phonebook frontend from the exercises of the previous part.
+
+## Exercise 3.10 step 10
+- [x] Deploy backend to internet with render. Link to the web app :
+https://fullstackopen-part3-fqnm.onrender.com/
+
+## Exercise 3.11 step 11
+- [x] make sure you can run the front app in dev mode as well as with the online built
