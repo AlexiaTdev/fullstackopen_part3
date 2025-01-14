@@ -11,6 +11,10 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 const cors = require('cors')
 app.use(cors())
 
+//use middleware for front project built in dist
+app.use(express.static('dist'))
+
+
 let persons = [
     { 
         "id": "1",
