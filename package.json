@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "startNote": "node indexNotes.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf dist && cd ../fullstackopen/part2/phonebook && npm run build && cp -r dist ../../../fullstackopen_part3",
@@ -14,6 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "dotenv-expand": "^12.0.1",
     "express": "^4.21.2",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.5",

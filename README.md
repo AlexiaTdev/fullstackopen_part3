@@ -65,3 +65,15 @@
         Anna 040-1234556
         Arto Vihavainen 045-1232456
         Ada Lovelace 040-1231236
+
+## Exercise 3.13 step 13, step 1
+
+- [x] Change the fetching of all phonebook entries so that the data is fetched from the database. (GET)
+- [x] Verify that the frontend works after the changes have been made. (GET)
+- [x] In the following exercises, write all Mongoose-specific code into its own module
+
+## Exercise 3.14 step 14, step 2
+
+- [ ] Change the backend so that new phonebook numbers are saved to the database. (POST)
+- [ ] At this stage, you can ignore whether there is already a person in the database with the same name as the person you are adding.
+- [ ] Verify that the frontend works after the changes have been made. (POST)

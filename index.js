@@ -11,6 +11,8 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :b
 const cors = require('cors')
 app.use(cors())
 
+require("dotenv").config();
+
 //use middleware for front project built in dist
 app.use(express.static('dist'))
 
@@ -38,24 +40,32 @@ let persons = [
     }
   ]
 
+  const Persons = require('./models/person')
+
   app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
   })
   app.get('/info', (request, response) => {
     let date = new Date();
-    response.send('<p>Phonebook has info for '+persons.length+' people</p><p>'+date+'</p>')
+    response.send('<p>Phonebook has info for '+Persons.length+' people</p><p>'+date+'</p>')
   })
   app.get('/api/persons', (request, response) => {
-    response.json(persons)
+    // response.json(persons)
+    Persons.find({}).then(person => {
+        response.json(person)
+      })
   })
   app.get('/api/persons/:id', (request, response) => {
-    const id = request.params.id
-    const person = persons.find(person => person.id === id)
-    if (person) {
+    // const id = request.params.id
+    // const person = persons.find(person => person.id === id)
+    // if (person) {
+    //     response.json(person)
+    // } else {
+    //     response.status(404).end()
+    // }
+    Persons.findById(request.params.id).then(person => {
         response.json(person)
-    } else {
-        response.status(404).end()
-    }
+    })
   })
 
   app.delete('/api/persons/:id', (request, response) => {
