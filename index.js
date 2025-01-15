@@ -93,7 +93,7 @@ let persons = [
     response.json(person)
   })
 
-// COURSE WITH NOTES
+/** COURSE WITH NOTES */
 let notes = [
   {
     id: "1",
