@@ -68,11 +68,16 @@ let persons = [
     })
   })
 
-  app.delete('/api/persons/:id', (request, response) => {
-    const id = request.params.id
-    persons = persons.filter(person => person.id !== id)
+  app.delete('/api/persons/:id', (request, response, next) => {
+    // const id = request.params.id
+    // persons = persons.filter(person => person.id !== id)
   
-    response.status(204).end()
+    // response.status(204).end()
+    Persons.findByIdAndDelete(request.params.id)
+        .then(result => {
+            response.status(204).end()
+        })
+        .catch(error => next(error))
   })
 
   // const generateId = () => {

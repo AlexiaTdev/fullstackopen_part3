@@ -77,3 +77,22 @@
 - [x] Change the backend so that new phonebook numbers are saved to the database. (POST)
 - [x] At this stage, you can ignore whether there is already a person in the database with the same name as the person you are adding.
 - [x] Verify that the frontend works after the changes have been made. (POST)
+
+## Exercise 3.15 step 15, step 3
+
+- [ ] Change the backend so that deleting phonebook entries is reflected in the database.
+- [ ] Verify that the frontend still works after making the changes
+
+## Exercise 3.16 step 16, step 4
+
+- [ ] Move the error handling of the application to a new error handler middleware.
+
+## Exercise 3.17 step 17, step 5
+
+- [ ] Modify the backend to support a request where the user tries to create a new phonebook entry for a person whose name is already in the phonebook
+- [ ] Verify that the frontend works after making your changes.
+
+## Exercise 3.18 step 18, step 6
+
+- [ ] update the handling of the api/persons/:id and info routes to use the database
+- [ ]  verify that they work directly with VS Code REST client
