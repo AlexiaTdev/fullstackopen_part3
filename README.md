@@ -80,12 +80,12 @@
 
 ## Exercise 3.15 step 15, step 3
 
-- [ ] Change the backend so that deleting phonebook entries is reflected in the database.
-- [ ] Verify that the frontend still works after making the changes
+- [x] Change the backend so that deleting phonebook entries is reflected in the database.
+- [x] Verify that the frontend still works after making the changes
 
 ## Exercise 3.16 step 16, step 4
 
-- [ ] Move the error handling of the application to a new error handler middleware.
+- [x] Move the error handling of the application to a new error handler middleware.
 
 ## Exercise 3.17 step 17, step 5
 
