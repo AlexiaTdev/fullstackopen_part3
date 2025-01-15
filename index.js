@@ -98,6 +98,12 @@ let persons = [
     //         error: 'person already exists' 
     //       })
     // }
+    if (Persons.findById(request.params.id)){
+      return response.status(400).send({ 
+        error: 'person already exists' 
+      })
+
+    }
 
     const person = new Persons({
         name: body.name,

@@ -89,8 +89,8 @@
 
 ## Exercise 3.17 step 17, step 5
 
-- [ ] Modify the backend to support a request where the user tries to create a new phonebook entry for a person whose name is already in the phonebook
-- [ ] Verify that the frontend works after making your changes.
+- [x] Modify the backend to support a request where the user tries to create a new phonebook entry for a person whose name is already in the phonebook
+- [x] Verify that the frontend works after making your changes.
 
 ## Exercise 3.18 step 18, step 6
 
