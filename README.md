@@ -74,6 +74,6 @@
 
 ## Exercise 3.14 step 14, step 2
 
-- [ ] Change the backend so that new phonebook numbers are saved to the database. (POST)
-- [ ] At this stage, you can ignore whether there is already a person in the database with the same name as the person you are adding.
-- [ ] Verify that the frontend works after the changes have been made. (POST)
+- [x] Change the backend so that new phonebook numbers are saved to the database. (POST)
+- [x] At this stage, you can ignore whether there is already a person in the database with the same name as the person you are adding.
+- [x] Verify that the frontend works after the changes have been made. (POST)
