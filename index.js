@@ -69,7 +69,7 @@ let persons = [
         .catch(error => next(error))
   })
 
-  app.post('/api/persons', (request, response, next) => {
+  app.post('/api/persons', async (request, response, next) => {
     const body = request.body
 
     if (!body.name || !body.number) {
@@ -77,7 +77,7 @@ let persons = [
           error: 'name or number missing' 
         })
     }
-    const personDoesExist = Persons.findOne({name:body.name})      
+    const personDoesExist = await Persons.findOne({name:body.name})      
       
     if (personDoesExist){
       return response.status(400).send({ 
