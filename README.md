@@ -99,9 +99,9 @@
 
 ## Exercise 3.19 step 19, step 7
 
-- [ ] Expand the validation so that the name stored in the database has to be at least three characters long.
-- [ ] Expand the frontend so that it displays some form of error message when a validation error occurs.
-- [ ] You can display the default error message returned by Mongoose, even though they are not as readable as they could be, on the front end
+- [x] Expand the validation so that the name stored in the database has to be at least three characters long.
+- [x] Expand the frontend so that it displays some form of error message when a validation error occurs.
+- [x] You can display the default error message returned by Mongoose, even though they are not as readable as they could be, on the front end
 
 ## Exercise 3.20 step 20, step 8
 
