@@ -94,5 +94,27 @@
 
 ## Exercise 3.18 step 18, step 6
 
-- [ ] update the handling of the api/persons/:id and info routes to use the database
-- [ ]  verify that they work directly with VS Code REST client
+- [x] update the handling of the api/persons/:id and info routes to use the database
+- [x]  verify that they work directly with VS Code REST client
+
+## Exercise 3.19 step 19, step 7
+
+- [ ] Expand the validation so that the name stored in the database has to be at least three characters long.
+- [ ] Expand the frontend so that it displays some form of error message when a validation error occurs.
+- [ ] You can display the default error message returned by Mongoose, even though they are not as readable as they could be, on the front end
+
+## Exercise 3.20 step 20, step 8
+
+- [ ] Add validation to your phonebook application, which will make sure that phone numbers are of the correct form. A phone number must:
+  - have length of 8 or more
+  - be formed of two parts that are separated by -, the first part has two or three numbers and the second part also consists of numbers
+    - eg. 09-1234556 and 040-22334455 are valid phone numbers
+    - eg. 1234556, 1-22334455 and 10-22-334455 are invalid
+- [ ] Use a Custom validator to implement the second part of the validation.
+- [ ] If an HTTP POST request tries to add a person with an invalid phone number, the server should respond with an appropriate status code and error message.
+
+## Exercise 3.21 step 21, step 9
+
+- [ ] Generate a new "full stack" version of the application by creating a new production build of the frontend, and copying it to the backend repository.
+- [ ] Verify that everything works locally by using the entire application from the address <http://localhost:3001/>.
+- [ ] Push the latest version to Render and verify that everything works there as well.

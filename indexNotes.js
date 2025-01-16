@@ -98,7 +98,7 @@ app.delete('/api/notes/:id', (request, response, next) => {
 //   return String(maxId + 1)
 // }
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/notes', (request, response, next) => {
   const body = request.body
 
   if (!body.content) {
@@ -123,17 +123,24 @@ app.post('/api/notes', (request, response) => {
     note.save().then(savedNote => {
         response.json(savedNote)
     })
+    .catch(error => next(error))
 })
 
 app.put('/api/notes/:id', (request, response, next) => {
     const body = request.body
+    const { content, important } = request.body
   
     const note = {
       content: body.content,
       important: body.important,
     }
   
-    Notes.findByIdAndUpdate(request.params.id, note, { new: true })
+    Notes.findByIdAndUpdate(request.params.id,
+        // note,
+        // { new: true }
+        { content, important },
+        { new: true, runValidators: true, context: 'query' }
+    )
       .then(updatedNote => {
         response.json(updatedNote)
       })
@@ -145,7 +152,9 @@ const errorHandler = (error, request, response, next) => {
   
     if (error.name === 'CastError') {
       return response.status(400).send({ error: 'malformatted id' })
-    } 
+    } else if (error.name === 'ValidationError') {
+        return response.status(400).send({ error: error.message })
+    }
   
     next(error)
   }

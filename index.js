@@ -84,7 +84,7 @@ let persons = [
   //   return Math.floor(Math.random() * 1000);
   // }
 
-  app.post('/api/persons', (request, response) => {
+  app.post('/api/persons', (request, response, next) => {
     const body = request.body
 
     if (!body.name || !body.number) {
@@ -98,11 +98,17 @@ let persons = [
     //         error: 'person already exists' 
     //       })
     // }
-    if (Persons.findById(request.params.id)){
+    const personDoesExist = false;
+    Persons.findById(request.params.id).then(person => {
+      if (person!=null) {
+        personDoesExist=true;
+      }
+    })
+
+    if (personDoesExist){
       return response.status(400).send({ 
         error: 'person already exists' 
       })
-
     }
 
     const person = new Persons({
@@ -120,7 +126,7 @@ let persons = [
     // response.json(person)
     person.save().then(savedPerson => {
       response.json(savedPerson)
-    })
+    }).catch(error => next(error))
   })
 
   const errorHandler = (error, request, response, next) => {
@@ -128,7 +134,10 @@ let persons = [
   
     if (error.name === 'CastError') {
       return response.status(400).send({ error: 'malformatted id' })
-    } 
+    }
+    if (error.name === 'ValidationError') {
+      return response.status(400).send({ error: error.message })
+    }
   
     next(error)
   }
