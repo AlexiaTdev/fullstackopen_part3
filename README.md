@@ -118,3 +118,7 @@
 - [x] Generate a new "full stack" version of the application by creating a new production build of the frontend, and copying it to the backend repository.
 - [x] Verify that everything works locally by using the entire application from the address <http://localhost:3001/>.
 - [x] Push the latest version to Render and verify that everything works there as well.
+
+## Exercise 3.22 step 22
+
+- [x] Add ESlint to your application and fix all the warnings.

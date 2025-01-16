@@ -26,25 +26,25 @@ const Person = mongoose.model('Person', personsSchema)
 
 if (process.argv[3] && process.argv[4]) {
 
-    const person = new Person({
-      name: process.argv[3],
-      number: process.argv[4],
-    })
-    
-    person.save().then(result => {
+  const person = new Person({
+    name: process.argv[3],
+    number: process.argv[4],
+  })
+
+  person.save().then(() => {
     console.log('Added', person.name, 'number', person.number, 'to phonebook')
-      mongoose.connection.close()
-    })
+    mongoose.connection.close()
+  })
 } else if (process.argv[3] && !process.argv[4]){
-    console.log('give a number for person', process.argv[3])
-    process.exit(1)
+  console.log('give a number for person', process.argv[3])
+  process.exit(1)
 } else if (!process.argv[3] && !process.argv[4]) {
-    Person.find({}).then(result => {
-        console.log('phonebook :')
-        result.forEach(person => {
-            console.log(person.name, person.number)
-        })
-        mongoose.connection.close()
+  Person.find({}).then(result => {
+    console.log('phonebook :')
+    result.forEach(person => {
+      console.log(person.name, person.number)
     })
+    mongoose.connection.close()
+  })
 }
 
