@@ -95,6 +95,19 @@ let persons = [
     }).catch(error => next(error))
   })
 
+  app.put('/api/persons/:id', (request, response, next) => {
+    const person = new Persons({
+      name: request.body.name,
+      number: request.body.number,
+    })
+    Persons.findByIdAndUpdate(request.params.id, { number: person.number})
+        .then(savedPerson => {
+          savedPerson.number=request.body.number
+          response.json(savedPerson)
+        })
+        .catch(error => next(error))
+  })
+
   const errorHandler = (error, request, response, next) => {
     console.error(error.message)
   

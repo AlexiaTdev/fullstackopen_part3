@@ -115,6 +115,6 @@
 
 ## Exercise 3.21 step 21, step 9
 
-- [ ] Generate a new "full stack" version of the application by creating a new production build of the frontend, and copying it to the backend repository.
-- [ ] Verify that everything works locally by using the entire application from the address <http://localhost:3001/>.
-- [ ] Push the latest version to Render and verify that everything works there as well.
+- [x] Generate a new "full stack" version of the application by creating a new production build of the frontend, and copying it to the backend repository.
+- [x] Verify that everything works locally by using the entire application from the address <http://localhost:3001/>.
+- [x] Push the latest version to Render and verify that everything works there as well.
