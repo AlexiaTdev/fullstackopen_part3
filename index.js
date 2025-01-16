@@ -50,39 +50,24 @@ let persons = [
     response.send('<p>Phonebook has info for '+Persons.length+' people</p><p>'+date+'</p>')
   })
   app.get('/api/persons', (request, response) => {
-    // response.json(persons)
     Persons.find({}).then(person => {
         response.json(person)
       })
   })
-  app.get('/api/persons/:id', (request, response) => {
-    // const id = request.params.id
-    // const person = persons.find(person => person.id === id)
-    // if (person) {
-    //     response.json(person)
-    // } else {
-    //     response.status(404).end()
-    // }
+  app.get('/api/persons/:id', (request, response, next) => {
+
     Persons.findById(request.params.id).then(person => {
         response.json(person)
-    })
+    }).catch(error => next(error))
   })
 
   app.delete('/api/persons/:id', (request, response, next) => {
-    // const id = request.params.id
-    // persons = persons.filter(person => person.id !== id)
-  
-    // response.status(204).end()
     Persons.findByIdAndDelete(request.params.id)
         .then(result => {
             response.status(204).end()
         })
         .catch(error => next(error))
   })
-
-  // const generateId = () => {
-  //   return Math.floor(Math.random() * 1000);
-  // }
 
   app.post('/api/persons', (request, response, next) => {
     const body = request.body
@@ -92,19 +77,8 @@ let persons = [
           error: 'name or number missing' 
         })
     }
-    // TODO LATER - from 3.14, step 2
-    // if (persons.find(person => person.name===body.name)){
-    //     return response.status(400).json({ 
-    //         error: 'person already exists' 
-    //       })
-    // }
-    const personDoesExist = false;
-    Persons.findById(request.params.id).then(person => {
-      if (person!=null) {
-        personDoesExist=true;
-      }
-    })
-
+    const personDoesExist = Persons.findOne({name:body.name})      
+      
     if (personDoesExist){
       return response.status(400).send({ 
         error: 'person already exists' 
@@ -115,15 +89,7 @@ let persons = [
         name: body.name,
         number: body.number,
     })
-    // const person = {
-    //     id: generateId(),
-    //     name: body.name,
-    //     number: body.number,
-    // }
-  
-    // persons = persons.concat(person)
-  
-    // response.json(person)
+
     person.save().then(savedPerson => {
       response.json(savedPerson)
     }).catch(error => next(error))
