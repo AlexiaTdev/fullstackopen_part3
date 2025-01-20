@@ -1,3 +1,4 @@
+const notesRouter = require('express').Router()
 const express = require('express')
 const app = express()
 app.use(express.json())
@@ -16,8 +17,10 @@ require('dotenv').config()
 //use middleware for front project built in dist
 app.use(express.static('dist'))
 
+const config = require('./utils/config')
+const logger = require('./utils/logger')
 
-const Notes = require('./models/note')
+const Notes = require('../models/note')
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
@@ -101,7 +104,8 @@ const errorHandler = (error, request, response, next) => {
 // this has to be the last loaded middleware, also all the routes should be registered before this!
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 3001
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+app.listen(config.PORT, () => {
+  logger.info(`Server running on port ${config.PORT}`)
 })
+
+module.exports = notesRouter
